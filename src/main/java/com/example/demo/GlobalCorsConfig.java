@@ -55,8 +55,9 @@ public class GlobalCorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOrigin("http://localhost:8083");
         config.addAllowedOrigin("https://sanazmi.github.io");
-        config.addAllowedOrigin("https://pg-spring-production.up.railway.app");
-        config.setAllowCredentials(true);
+        config.addAllowedOrigin("https://github.com/sanazmi/pg-spring");
+        config.addAllowedOrigin("https://pg-spring-production.up.railway.app/");
+        config.setAllowCredentials(true); 
         config.addAllowedMethod("*"); // Allow all methods
         config.addAllowedHeader("*"); // Allow all headers
         config.addExposedHeader("Access-Control-Allow-Origin");
