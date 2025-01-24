@@ -146,7 +146,13 @@
             const isLocalHost = window.location.hostname === 'localhost';
             const baseUrl = isLocalHost ?
                 'http://localhost:8083/generate-password' :
-                'https://pg-spring-production.up.railway.app/generate-password';
+                'https://pg-spring-production.up.railway.app/generate-password'; // Removed extra space
+
+            // Validate input
+            if (!length || isNaN(length) || length <= 0) {
+                document.getElementById('result').innerText = 'Please enter a valid length.';
+                return;
+            }
 
             const url = `${baseUrl}?length=${length}&includeSpecialCharacters=${includeSpecialCharacters}`;
 
