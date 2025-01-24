@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:8083", "https://sanazmi.github.io"})
+@CrossOrigin(origins = {"http://localhost:8083", "https://sanazmi.github.io" , "https://pg-spring-production.up.railway.app"})
 public class PasswordGeneratorController {
 
     private static final String UPPER_CASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

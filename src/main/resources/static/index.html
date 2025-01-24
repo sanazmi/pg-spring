@@ -137,11 +137,18 @@
         //     }
         // }
 
+
         async function generatePassword() {
             const length = document.getElementById('length').value;
             const includeSpecialCharacters = document.getElementById('specialCharacters').checked;
 
-            const url = `https://pg-spring-production.up.railway.app/generate-password?length=${length}&includeSpecialCharacters=${includeSpecialCharacters}`;
+            // Determine the URL based on the environment
+            const isLocalHost = window.location.hostname === 'localhost';
+            const baseUrl = isLocalHost ?
+                'http://localhost:8083/generate-password' :
+                'https://pg-spring-production.up.railway.app/generate-password';
+
+            const url = `${baseUrl}?length=${length}&includeSpecialCharacters=${includeSpecialCharacters}`;
 
             try {
                 const response = await fetch(url, {

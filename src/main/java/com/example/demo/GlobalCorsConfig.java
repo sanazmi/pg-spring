@@ -47,22 +47,24 @@ import org.springframework.web.filter.CorsFilter;
 // }
 
 
-
 @Configuration
 public class GlobalCorsConfig {
 
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("http://localhost:8083"); // Local development frontend
-        config.addAllowedOrigin("https://sanazmi.github.io"); // GitHub Pages frontend
-        config.addAllowedOrigin("https://pg-spring-production.up.railway.app"); // Deployed backend
-        config.setAllowCredentials(true); // Allow cookies/auth headers if needed
-        config.addAllowedMethod("*"); // Allow all HTTP methods
-        config.addAllowedHeader("*"); // Allow all request headers
+        config.addAllowedOrigin("http://localhost:8083");
+        config.addAllowedOrigin("https://sanazmi.github.io");
+        config.addAllowedOrigin("https://pg-spring-production.up.railway.app");
+        config.setAllowCredentials(true);
+        config.addAllowedMethod("*"); // Allow all methods
+        config.addAllowedHeader("*"); // Allow all headers
+        config.addExposedHeader("Access-Control-Allow-Origin");
+        config.addExposedHeader("Access-Control-Allow-Credentials");
+        config.setMaxAge(3600L); // Cache preflight response for 1 hour
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config); // Apply to all endpoints
+        source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
 }
