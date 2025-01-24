@@ -32,7 +32,7 @@ public class GlobalCorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOrigin("http://localhost:8083"); // Localhost
         config.addAllowedOrigin("https://github.com/sanazmi"); // GitHub Pages
-        config.addAllowedOrigin("http://pg-spring-production.up.railway.app"); // Railway
+        config.addAllowedOrigin("https://pg-spring-production.up.railway.app"); // Railway
 
         config.setAllowCredentials(true); // Allow cookies/authentication
         config.addAllowedMethod("*"); // Allow all HTTP methods
