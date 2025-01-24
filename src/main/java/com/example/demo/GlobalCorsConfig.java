@@ -46,7 +46,7 @@ public class GlobalCorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(
-            List.of("http://localhost:8083", "https://github.com/sanazmi", "https://pg-spring-production.up.railway.app")
+            List.of("http://localhost:8080", "https://github.com/sanazmi", "https://pg-spring-production.up.railway.app")
         ); // Using setAllowedOrigins instead of multiple addAllowedOrigin
         config.setAllowCredentials(true); // Allow cookies/authentication
         config.addAllowedMethod("*"); // Allow all HTTP methods
